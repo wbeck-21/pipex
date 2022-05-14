@@ -6,7 +6,7 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 10:31:31 by wbeck             #+#    #+#             */
-/*   Updated: 2022/05/12 20:31:44 by wbeck            ###   ########.fr       */
+/*   Updated: 2022/05/14 19:39:42 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@
 # include <sys/wait.h>
 # include "libft/libft.h"
 
-// typedef struct s_pipex
-// {
-// 	pid_t	child_1;
-// 	pid_t	child_2;
-// 	int		fd[2];
-// 	char	**cmds;
-// 	char	*cmd;
-// 	char	*arg;
-// }	t_pipex;
+typedef struct s_pipex
+{
+	pid_t	pid;
+	int		*ends;
+	int		infile;
+	int		outfile;
+	int		count_cmds;
+	int		id;
+	char	**command;
+	char	*command_path;
+}	t_pipex;
 
 #endif
