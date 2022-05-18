@@ -5,7 +5,7 @@ HEAD	= pipex.h
 LIB		= ./libft/libft.a
 INC		= -I ./libft
 
-SRCS 	= pipex.c
+SRCS 	= pipex.c utils.c
 OBJS 	= ${SRCS:.c=.o}
 
 RM		= rm -rf
