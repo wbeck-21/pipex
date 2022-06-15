@@ -6,16 +6,15 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:09:58 by wbeck             #+#    #+#             */
-/*   Updated: 2022/05/18 16:10:20 by wbeck            ###   ########.fr       */
+/*   Updated: 2022/06/15 10:34:38 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../include/pipex.h"
 
 void	errors(char *err)
 {
-	perror(err);
-	exit(1);
+	write(2, err, ft_strlen(err));
 }
 
 void	close_ends(t_pipex *pipex)

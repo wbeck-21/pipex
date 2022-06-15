@@ -6,11 +6,11 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:48:39 by wbeck             #+#    #+#             */
-/*   Updated: 2022/05/18 16:19:03 by wbeck            ###   ########.fr       */
+/*   Updated: 2022/06/15 13:16:39 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../include/pipex.h"
 
 void	find_command_path(t_pipex *pipex, char *command, char **envp)
 {
@@ -61,7 +61,10 @@ void	process_pid(t_pipex *pipex, char **argv, char **enpv, int i)
 		pipex->command = ft_split(argv[2 + i], ' ');
 		find_command_path(pipex, pipex->command[0], enpv);
 		if (!(pipex->command_path))
+		{
+			errors("Command not found\n");
 			free_pid(pipex);
+		}
 		execve(pipex->command_path, pipex->command, enpv);
 	}
 }
@@ -84,10 +87,16 @@ void	open_files(t_pipex *pipex, char **argv)
 {
 	pipex->infile = open(argv[1], O_RDONLY);
 	if (pipex->infile < 0)
-		errors("Open failed on input file");
+	{
+		errors("Open failed on input file\n");
+		exit(1);
+	}
 	pipex->outfile = open(argv[4], O_CREAT | O_TRUNC | O_WRONLY, 0000644);
 	if (pipex->outfile < 0)
-		errors("Open failed on output file");
+	{
+		errors("Open failed on output file\n");
+		exit(1);
+	}
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -101,7 +110,10 @@ int	main(int argc, char **argv, char **envp)
 		pipex.count_cmds = argc - 3;
 		pipex.ends = (int *)malloc(sizeof(int) * (pipex.count_cmds - 1) * 2);
 		if (!pipex.ends)
-			errors("Out of memory");
+		{
+			errors("Out of memory\n");
+			exit(1);
+		}
 		i = -1;
 		while (pipex.count_cmds - 1 > ++i)
 		{
@@ -115,6 +127,9 @@ int	main(int argc, char **argv, char **envp)
 		create_pid(pipex, argv, envp);
 	}
 	else
-		errors("Error");
+	{
+		errors("Invalid number of arguments\n");
+		exit(1);
+	}
 	return (0);
 }
