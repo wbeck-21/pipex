@@ -11,7 +11,7 @@ HEAD		=	$(addprefix $(HEAD_DIR), $(HEAD_SRCS))
 SRCS 	= mandatory/pipex.c mandatory/utils.c
 OBJS 	= ${SRCS:.c=.o}
 
-B_SRCS 	= bonus/pipex_bonus.c bonus/utils_bonus.c bonus/get_next_line/get_next_line.c bonus/get_next_line/get_next_line_utils.c
+B_SRCS 	= bonus/pipex_bonus.c bonus/utils_bonus.c bonus/gnl/get_next_line.c bonus/gnl/get_next_line_utils.c
 B_OBJS 	= ${B_SRCS:.c=.o}
 
 RM		= rm -rf

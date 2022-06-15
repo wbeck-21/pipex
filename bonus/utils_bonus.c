@@ -6,7 +6,7 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 16:09:58 by wbeck             #+#    #+#             */
-/*   Updated: 2022/06/14 23:26:12 by wbeck            ###   ########.fr       */
+/*   Updated: 2022/06/16 00:29:08 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	open_files(t_pipex *pipex, int argc, char **argv)
 	{
 		process_here_doc(pipex, argv[2]);
 		pipex->outfile = open(argv[argc - 1],
-				O_APPEND | O_TRUNC | O_WRONLY, 0000644);
+				O_CREAT | O_TRUNC | O_WRONLY, 0000644);
 		pipex->here_doc = 1;
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 10:31:31 by wbeck             #+#    #+#             */
-/*   Updated: 2022/06/14 23:29:14 by wbeck            ###   ########.fr       */
+/*   Updated: 2022/06/16 00:25:32 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <sys/wait.h>
-# include "../bonus/get_next_line/get_next_line.h"
+# include "../bonus/gnl/get_next_line.h"
 # include "../libft/libft.h"
 
 typedef struct s_pipex

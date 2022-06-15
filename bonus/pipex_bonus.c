@@ -6,7 +6,7 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:48:39 by wbeck             #+#    #+#             */
-/*   Updated: 2022/06/15 14:06:38 by wbeck            ###   ########.fr       */
+/*   Updated: 2022/06/16 00:22:58 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	process_here_doc(t_pipex *pipex, char *argv)
 	while (1)
 	{
 		write(1, "heredoc> ", 9);
-		if (get_next_line(0, &part_line) != NULL)
+		if (get_next_line(0, &part_line) < 0)
 			exit(1);
 		if (!ft_strncmp(argv, part_line, ft_strlen(argv) + 1))
 			break ;
